@@ -1,4 +1,4 @@
-package com.bupt.JavaBasic;
+package com.bupt.JavaBasic.JavaBasic;
 
 /**
  * @program: JDK8
@@ -9,6 +9,16 @@ package com.bupt.JavaBasic;
 public class StringTest {
 
     public static void main(String[] args) {
+
+        /**
+         * String是不可变的，底层是final char[] value
+         * 被final修饰的数据不可变，对象不能指向其他地址，那么char[]不能改变地址，数据应该可以改变，为什么说不可变
+         *
+         * value不能引用别的对象，且string内部没有改变value的方法
+         * */
+        String str = new String("abc");
+
+
     /**
      *  String str1 = new String("abc");
         String str2 = "abc";
@@ -58,11 +68,23 @@ public class StringTest {
         System.out.println(str1 == str3);//false
      */
 
+    /**
+     *  String str1 = "hello world";
+     *  final String str2 = "hello";
+     *  String str3 = str2 + " world";
+     *  System.out.println(str1 == str3);//true
+     * */
 
-        String str1 = "hello world";
-        final String str2 = "hello";
-        String str3 = str2 + " world";
-        System.out.println(str1 == str3);//true
+
+
+        /**
+         *
+         *
+         * */
+        String s1 = new String("abc");// 堆内存的地址值
+        String s2 = "abc";
+        System.out.println(s1 == s2);// 输出 false,因为一个是堆内存，一个是常量池的内存，故两者是不同的。
+        System.out.println(s1.equals(s2));// 输出 true
 
 
     }
