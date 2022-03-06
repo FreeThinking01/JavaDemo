@@ -1,4 +1,4 @@
-package com.bupt.JavaBasicInterface;
+package com.bupt.JavaBasic.JavaBasicInterface;
 
 /**
  * @program: JDK8
@@ -12,4 +12,6 @@ public interface InterfaceTest {
     default void printWorld(){
         System.out.println("world");
     }
+    //接口中的字段都是static final的
+    Integer num = 7;
 }

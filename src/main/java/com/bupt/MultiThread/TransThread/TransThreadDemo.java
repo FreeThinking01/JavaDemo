@@ -31,7 +31,8 @@ public class TransThreadDemo {
 
     }
 
-
+    //wait 和 notify方法必须在synchronized中使用，否则会报错， wait会释放锁
+    //wait 和 notify 的线程在synchronized加锁对象中的monitor对象的等待队列中存储，等待获取锁在monitor对象的同步队列存储
     class TaskQueue {
 
         List<Integer> list = new ArrayList<>();
