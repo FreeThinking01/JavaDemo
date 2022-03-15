@@ -1,6 +1,11 @@
 package com.bupt.producer_consumer;
 
+import sun.misc.Unsafe;
+
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @program: JavaDemo
@@ -9,6 +14,40 @@ import java.util.LinkedList;
  * @description:
  **/
 public class MyContainer1<T> {
+
+
+    public static void main(String[] args) {
+        MyContainer1<String> blockQueue = new MyContainer1<>();
+
+
+
+        Thread producer = new Thread(()->{
+
+            for (int i = 0; i < 10; i++) {
+                try {
+                    Thread.sleep(100);
+                    System.out.println("当前放入数据为：" + i);
+                    blockQueue.put(String.valueOf(i));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        Thread consumer = new Thread(()->{
+
+            for (int i = 0; i < 10; i++) {
+                try {
+                    Thread.sleep(100);
+                    System.out.println("当前取出数据为：" + blockQueue.get());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        producer.start();
+
+        consumer.start();
+    }
 
     //容器
     private final LinkedList<T> list = new LinkedList<>();

@@ -12,4 +12,5 @@ public class FinalTest {
     //final修饰的对象存放在常量池还是堆中
     public final HashMap<Integer, Integer> finalMap = new HashMap<>();
     public HashMap<Integer, Integer> map = new HashMap<>();
+
 }
